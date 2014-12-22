@@ -236,18 +236,6 @@ var MyFileError = function(obj) {
 // code mnemonic.
 FileError.BROWSER_NOT_SUPPORTED = 1000;
 
-// TODO: remove when FileError.name is implemented (crbug.com/86014).
-FileError.prototype.__defineGetter__('name', function() {
-  var keys = Object.keys(FileError);
-  for (var i = 0, key; key = keys[i]; ++i) {
-    if (FileError[key] == this.code) {
-      return key;
-    }
-  }
-  return 'Unknown Error';
-});
-
-
 var Filer = new function() {
 
   var FS_INIT_ERROR_MSG = 'Filesystem has not been initialized.';
